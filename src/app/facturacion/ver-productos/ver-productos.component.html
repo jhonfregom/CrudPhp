@@ -1,0 +1,46 @@
+
+<div class="card">
+
+  <p-table #dt  [value]="detalles" [rows]="10" [paginator]="true" 
+     [rowHover]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+      <ng-template pTemplate="caption">
+          <div class="p-d-flex p-ai-center p-jc-between">
+              <h5 class="p-m-0">Productos a Facturar</h5>
+              
+          </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
+              <th style="width: 3rem">
+              </th>
+              <th pSortableColumn="question">Cod. Producto</th>
+              <th pSortableColumn="question">Producto </th>
+              <th pSortableColumn="state">Cantidad </th>
+              <th pSortableColumn="state">Precio Unidad </th>
+              <th pSortableColumn="state">Total </th>
+              
+              
+              <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-detalle>
+       
+          <tr>
+              <td>
+
+              </td>
+              <td>{{ detalle.cod_producto }}</td>
+              <td>{{ detalle.descripcion }}</td>
+              <td>{{ detalle.cantidad }}</td>
+              <td>{{ detalle.precio_unidad }}</td>
+              <td>{{ detalle.total }}</td>
+              <button pButton pRipple type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"
+              (click)="delete(detalle)"></button>
+ 
+      </ng-template>
+                
+  </p-table>
+  <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="facturar()">FACTURAR</button>
+    
+</div>

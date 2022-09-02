@@ -1,0 +1,60 @@
+<div class="card" >
+
+    <h2>Facturar Productos</h2>
+    
+    <form class="">
+
+        <div class="form-group">
+            <h3><label for="">Producto:</label></h3>
+            <span class="p-float-label">
+            <p-cascadeSelect [(ngModel)]="detalle.cod_producto" [ngModelOptions]="{standalone: true}" [options]="producto" optionLabel="descripcion"
+            [optionGroupChildren]="['producto']" [style]="{'minWidth': '80rem'}" placeholder="Selecciona un Producto">
+          </p-cascadeSelect>
+        </span>
+        </div>
+
+        <div class="form-group " >
+          <h3><label for="name">Cantidad:</label></h3>
+            <span class="p-float-label">
+            <input type="text" pInputText class="form-control field col-12 md:col-12" id="cantidad"
+                   required
+                   [(ngModel)]="detalle.cantidad" name="cantidad">
+                  </span>
+         </div>
+
+          
+        <div class="form-group " >
+            <h3><label for="name">Peso:</label></h3>
+            <span class="p-float-label">
+            <input type="text" pInputText class="form-control field col-12 md:col-12" id="cantidad"
+                   required
+                   [(ngModel)]="detalle.peso" name="peso">
+              </span>
+          </div>
+
+          
+
+          <div class="form-group">
+            <h3><label for="">Forma de Pago:</label></h3>
+            <span class="p-float-label">
+              <select name="select" style="width:200px;" [(ngModel)]="detalle.forma_pago">
+                <option value="value1" selected></option>
+                <option value="EF">Efectivo</option>
+                <option value="TC">Tarjeta de crédito</option>
+                <option value="TB">Tarjeta de débito</option>
+                <option value="CH">Cheque</option>
+                
+              </select>
+        </span>
+        </div>
+
+        
+
+<hr>   
+    <button pButton class="p-button-primary btn-block m-2 px-16 py-2" (click)="regisDetalle(detalle)" 
+     >Registrar Producto</button>
+    </form>
+
+    <app-ver-productos></app-ver-productos>
+  
+</div>
